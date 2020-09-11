@@ -5,17 +5,17 @@ const Throttling = ({}) => {
   const throttling = (fn, delay) => {
     console.log("click");
     let flag = true;
-    return () => {
+    return (...args) => {
       if (flag === false) return;
       flag = false;
-      fn();
+      fn(args);
       setTimeout(() => {
         flag = true;
       }, delay);
     };
   };
-  const myFunc = () => {
-    console.log("Clicked!!");
+  const myFunc = (X, Y) => {
+    console.log("Clicked!!", X, Y);
   };
   useEffect(() => {
     let magicX = throttling(myFunc, 5000);
@@ -24,7 +24,7 @@ const Throttling = ({}) => {
 
   return (
     <div>
-      <button onClick={(e) => magic.X()}>Click</button>
+      <button onClick={(e) => magic.X("SId", 45)}>Click</button>
     </div>
   );
 };

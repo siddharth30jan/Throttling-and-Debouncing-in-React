@@ -1,6 +1,7 @@
 import React from "react";
-
+const { useState, useEffect } = React;
 const Debouncing = () => {
+  const [magic, fmagic] = useState();
   const debounce = (fn, delay) => {
     //console.log("click");
     let id;
@@ -14,9 +15,13 @@ const Debouncing = () => {
   const myFunc = () => {
     console.log("Clicked!!");
   };
+  useEffect(() => {
+    let magicX = debounce(myFunc, 5000);
+    fmagic({ X: magicX });
+  }, []);
   return (
     <div>
-      <button onClick={(e) => debounce(myFunc, 5000)()}>Click</button>
+      <button onClick={(e) => magic.X()}>Click</button>
     </div>
   );
 };

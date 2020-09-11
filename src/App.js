@@ -1,13 +1,14 @@
 import React from "react";
-import NavBar from "./components/NavBar";
-import Search from "./components/Search";
+import Debouncing from "./Debouncing";
+import Throttleing from "./Throttling";
 
+//JSX html
 const App = () => {
   return (
-    <div>
-      <NavBar />
-      <Search />
-    </div>
+    <>
+      <Debouncing />
+      <Throttleing />
+    </>
   );
 };
 
